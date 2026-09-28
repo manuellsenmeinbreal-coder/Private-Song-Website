@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glassbox – Meine Musik</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="disc" aria-hidden="true"></div>
+<canvas class="viz" id="viz" width="1000" height="1000" aria-hidden="true"></canvas>
+
+<div class="app">
+  <aside class="side glass">
+    <div class="brand">Glassbox</div>
+    <button class="item" id="libBtn"><span>Bibliothek</span><small id="libCount"></small></button>
+    <h2>Playlists</h2>
+    <div id="lists"></div>
+    <form class="newlist" id="newForm">
+      <input type="text" id="newName" placeholder="Neue Playlist" maxlength="40" aria-label="Name der neuen Playlist">
+      <button class="ib" title="Playlist anlegen" aria-label="Playlist anlegen" id="newBtn"></button>
+    </form>
+    <p class="mark">erstellt von that.manu</p>
+  </aside>
+
+  <main class="main glass">
+    <div class="head">
+      <div><h1 id="title"></h1><p id="sub"></p></div>
+      <div class="actions" id="actions"></div>
+    </div>
+    <div class="songs" id="songs"></div>
+  </main>
+
+  <footer class="player glass">
+    <div class="now"><b id="curTitle">Keine Wiedergabe</b><span id="curSub">Wähle einen Song</span></div>
+    <div class="center">
+      <div class="ctrl">
+        <button class="ib" id="prev" title="Vorheriger Song" aria-label="Vorheriger Song"></button>
+        <button class="ib play" id="pp" title="Abspielen" aria-label="Abspielen"></button>
+        <button class="ib" id="next" title="Nächster Song" aria-label="Nächster Song"></button>
+      </div>
+      <div class="bar"><span id="ct">0:00</span><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Fortschritt"><span id="dt">0:00</span></div>
+    </div>
+    <div class="right">
+      <button class="sw" id="ap" role="switch" aria-checked="true"><i></i>Autoplay</button>
+      <label class="vol"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM16 8.5a5 5 0 010 7l-1.2-1.2a3.3 3.3 0 000-4.6zM18.4 6.1a8.4 8.4 0 010 11.8l-1.2-1.2a6.7 6.7 0 000-9.4z"/></svg><input type="range" id="vol" min="0" max="100" value="80" aria-label="Lautstärke"></label>
+    </div>
+  </footer>
+</div>
+
+<div class="drop" id="drop"><div>Audiodateien hier ablegen</div></div>
+<input type="file" id="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac" multiple hidden>
+
+<script src="app.js"></script>
+</body>
+</html>
