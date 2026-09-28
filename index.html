@@ -8,8 +8,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="disc" aria-hidden="true"></div>
-<canvas class="viz" id="viz" width="1000" height="1000" aria-hidden="true"></canvas>
 
 <div class="app">
   <aside class="side glass">
@@ -29,13 +27,16 @@
       <div><h1 id="title"></h1><p id="sub"></p></div>
       <div class="actions" id="actions"></div>
     </div>
+    <input type="search" class="search" id="search" placeholder="Songs durchsuchen" aria-label="Songs durchsuchen">
     <div class="songs" id="songs"></div>
+    <div class="stage" aria-hidden="true"><canvas class="viz" id="viz" width="1000" height="1000"></canvas><div class="disc"></div></div>
   </main>
 
   <footer class="player glass">
-    <div class="now"><b id="curTitle">Keine Wiedergabe</b><span id="curSub">Wähle einen Song</span></div>
+    <div class="now"><div class="art" id="art"></div><div class="txt"><b id="curTitle">Keine Wiedergabe</b><span id="curSub">Wähle einen Song</span></div></div>
     <div class="center">
       <div class="ctrl">
+        <button class="ib" id="shuf" title="Zufallswiedergabe" aria-label="Zufallswiedergabe" aria-pressed="false"></button>
         <button class="ib" id="prev" title="Vorheriger Song" aria-label="Vorheriger Song"></button>
         <button class="ib play" id="pp" title="Abspielen" aria-label="Abspielen"></button>
         <button class="ib" id="next" title="Nächster Song" aria-label="Nächster Song"></button>
@@ -49,7 +50,8 @@
   </footer>
 </div>
 
-<div class="drop" id="drop"><div>Audiodateien hier ablegen</div></div>
+<div class="drop" id="drop"><div>Audiodateien ablegen<br><small>Bild auf einen Song ziehen = Cover</small></div></div>
+<input type="file" id="img" accept="image/*" hidden>
 <input type="file" id="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac" multiple hidden>
 
 <script src="app.js"></script>
